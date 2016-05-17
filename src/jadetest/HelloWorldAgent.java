@@ -36,7 +36,7 @@ public class HelloWorldAgent extends Agent {
 				return finished;
 			}
 		};
-		addBehaviour(hello_behaviour);
+		this.addBehaviour(hello_behaviour);
 	}
 
 }
