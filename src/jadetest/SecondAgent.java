@@ -2,10 +2,10 @@ package jadetest;
 
 import jade.core.Agent;
 import jade.core.behaviours.*;
-import jade.lang.acl.ACLMessage;
+import jade.lang.acl.*;
 
 public class SecondAgent extends Agent {
-	 protected void setup(){
+	 public void setup(){
 
 		this.addBehaviour(new CyclicBehaviour(){
 			public void action (){
@@ -14,8 +14,9 @@ public class SecondAgent extends Agent {
 					System.out.println("receive:"+msg.getContent());
 				}
 			}
-			};
-	 }}
+		});
+			}
+	 }
 		
 			
 		
