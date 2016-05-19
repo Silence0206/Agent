@@ -25,8 +25,9 @@ public class SecondAgent extends Agent {
 
 		try {
 			int result=db1.pst.executeUpdate();//执行语句，得到结果集
-			
-			System.out.println(result);
+			if(result==0){
+				System.out.println("表"+ex.classname+"的创建语句"+ex.sql+"执行完毕");
+			}
 			db1.close();//关闭连接
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -50,7 +51,7 @@ public class SecondAgent extends Agent {
 					if ("JavaSerialization".equals(msg.getLanguage())) {
 						ClassCreate p;
 						p = (ClassCreate) msg.getContentObject();
-						System.out.println(getLocalName() + " 获取Java对象： ");
+						System.out.println(getLocalName() + " Agent已获取到Java对象： ");
 						System.out.println(p.classname+"|"+p.sql);
 						dosql(p);
 					}

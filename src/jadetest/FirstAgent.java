@@ -7,6 +7,7 @@ import com.bean.ClassCreate;
 import jade.core.AID;
 import jade.core.Agent;
 import jade.core.Location;
+import jade.core.behaviours.CyclicBehaviour;
 import jade.core.behaviours.SimpleBehaviour;
 import jade.lang.acl.ACLMessage;
 
@@ -14,9 +15,10 @@ public class FirstAgent extends Agent{
 	/**
 	 * Agent自动创建类
 	 */
+	 Scanner s = new Scanner(System.in);
 	public ClassCreate createclass(){
 		ClassCreate classcreate=new ClassCreate();
-		 Scanner s = new Scanner(System.in);
+		
 		System.out.println("请输入您想创建的类名，字段，类型!");
 		String[] strs=s.next().split(",");
 		classcreate.setClassname(strs[0]);
@@ -61,27 +63,15 @@ public class FirstAgent extends Agent{
          msg.setLanguage("JavaSerialization");
          send(msg);
         // System.out.println(getLocalName()+" sent 1st msg "+msg);
-         doDelete(); 
+         
 	}
 	
 	public void setup(){
 		SimpleBehaviour hello_behaviour = new SimpleBehaviour(this) {
 			boolean finished = false;
 
-			public void action() {
-				
-				System.out.println("-----About Me:-----");
-				System.out.println("My local name is:" + getLocalName());
-				System.out.println("My globally unique name is:" + getName());
-				System.out.println("-----About Here:-----");
-				Location l = here();
-				System.out.println("====Tostring" + l.toString());
-				System.out.println("I am running in a location called:" + l.getName());
-				System.out.println("Which is identified uniquely as:" + l.getID());
-				System.out.println("And is contactable at:" + l.getAddress());
-				System.out.println("Using the protocol:" + l.getProtocol());
+			public void action() {			
 				doWait(5000);
-				//createclass();
 				try {
 					ClassCreate createclass =createclass();
 					sendmsg(createclass);
@@ -89,7 +79,7 @@ public class FirstAgent extends Agent{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				finished = true;
+				//finished = true;
 			}
 
 			public boolean done() {
