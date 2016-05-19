@@ -27,7 +27,7 @@ public class HelloWorldAgent extends Agent {
 				System.out.println("====Tostring" + l.toString());
 				System.out.println("I am running in a location called:" + l.getName());
 				System.out.println("Which is identified uniquely as:" + l.getID());
-				System.out.println("And is contactable at:" + l.getAddress());
+ 				System.out.println("And is contactable at:" + l.getAddress());
 				System.out.println("Using the protocol:" + l.getProtocol());
 				finished = true;
 			}
