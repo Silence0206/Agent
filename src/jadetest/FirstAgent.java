@@ -79,7 +79,7 @@ public class FirstAgent extends Agent{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				//finished = true;
+				//finished = true; //去掉这句话这个action才能循环执行
 			}
 
 			public boolean done() {
